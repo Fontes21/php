@@ -32,13 +32,21 @@ echo $dolar * $real;
 </form>
 
 <?php
-if (isset($_GET["peso"]) && isset($_GET["altura"]))
-{
-$peso = $_GET["peso"];
-$altura  = $_GET["altura"];
-echo $peso / ($altura * $altura);
-}
-?>
+    
+    $altura = $_GET['altura'];
+    $sexo = $_GET['sexo'];
+
+    if ($sexo === 'M') {
+        $pesoIdeal = (72.7 * $altura) - 58;
+    } elseif ($sexo === 'F') {
+        $pesoIdeal = (62.1 * $altura) - 44.7;
+    } else {
+        echo "Sexo inválido";
+        exit;
+    }
+    echo "O peso ideal é: " . $pesoIdeal . " kg";
+    ?>
+
 
 </body>
 </html>
